@@ -7,4 +7,6 @@
 /modules.xml
 /inspectionProfiles/profiles_settings.xml
 /inspectionProfiles/Project_Default.xml
+/__pycache__
 
+.env
