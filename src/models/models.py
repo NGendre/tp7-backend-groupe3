@@ -1,8 +1,10 @@
 from sqlalchemy import Column, Integer, String, Date, Boolean, ForeignKey, Index, Numeric, Float,MetaData
 
 from sqlalchemy.orm import relationship
+from sqlalchemy import select
+from database import Base, SessionLocal, engine
+from sqlalchemy.orm import Session
 
-from database import Base
 
 # Justine - 12122022 -  V1
 # classe permettant de définir les modèles de la base de données pour créer ou accéder aux tables
@@ -161,7 +163,15 @@ class Utilisateur(Base):
 class RoleUtilisateur(Base):
 	__tablename__ = "t_utilisateur_role"
 
-	id = Column(Integer,primary_key=True)
+	id = Column(Integer, primary_key=True)
 	utilisateur_id = Column(Integer, ForeignKey('t_utilisateur.code_utilisateur'))
 	role_id = Column(Integer, ForeignKey('t_role.codrole'))
 
+
+session = Session(engine)
+
+
+stmt = select(Utilisateur).where(Utilisateur.nom_utilisateur.in_(["spongebob", "sandy"]))
+
+for user in session.scalars(stmt):
+	print(user)
