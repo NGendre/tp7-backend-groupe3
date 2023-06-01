@@ -16,14 +16,18 @@ class TestUserService(TestCase):
 
     def test_create_user(self):
         user_data = CreateUserSchema(username='john_doe', nom_utilisateur='Doe', prenom_utilisateur='John')
-        user_model_mock = MagicMock(spec=UserModel)
         fake_model = UserModel()
-        user_model_mock.create_default.return_value = fake_model
-        self.user_repository.create.return_value = user_model_mock
 
-        with patch('src.schemas.User.UserSchema.UserSchema.from_orm', return_value=UserSchema(code_utilisateur=1, username=user_data.username, nom_utilisateur=user_data.nom_utilisateur, prenom_utilisateur=user_data.prenom_utilisateur, couleur_fond_utilisateur=0, date_insc_utilisateur=datetime.now())):
-            with patch('src.models.UserModel.UserModel.create_default', return_value=fake_model):
-                self.user_service.create_user(user_data)
+        with patch('src.schemas.User.UserSchema.UserSchema.from_orm',
+                   return_value=UserSchema(code_utilisateur=1,
+                                           username=user_data.username,
+                                           nom_utilisateur=user_data.nom_utilisateur,
+                                           prenom_utilisateur=user_data.prenom_utilisateur,
+                                           couleur_fond_utilisateur=0,
+                                           date_insc_utilisateur=datetime.now()))\
+             and \
+             patch('src.models.UserModel.UserModel.create_default', return_value=fake_model):
+            self.user_service.create_user(user_data)
         self.user_repository.create.assert_called_once_with(fake_model)
 
     def test_get_all_users(self):
