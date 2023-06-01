@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Date, Boolean, ForeignKey, Index
 
 from sqlalchemy.orm import relationship
 from sqlalchemy import select
-from database import Base, SessionLocal, engine
+from src.config.Database import Base, SessionLocal, engine
 from sqlalchemy.orm import Session
 
 
