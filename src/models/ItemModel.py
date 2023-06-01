@@ -10,7 +10,7 @@ class ItemModel(Base,Dictable):
 	__tablename__ = "t_objet"
 	#this model is mapped to the table 't_objet'
 
-	def CreateItemModelFromSchema(itemSchema: ItemSchema):
+	def createItemModelFromSchema(itemSchema: ItemSchema):
 		newItem = ItemModel()
 		newItem.libobj = itemSchema.libobj
 		newItem.tailleobj = itemSchema.tailleobj

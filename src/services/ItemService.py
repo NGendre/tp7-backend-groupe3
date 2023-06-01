@@ -33,7 +33,7 @@ class ItemService:
         :param item: new item
         :return: new item transformet with necessary data only
         """
-        return self._itemRepository.create(ItemModel.CreateItemModelFromSchema(item))
+        return self._itemRepository.create(ItemModel.createItemModelFromSchema(item))
 
 
     def update(self, codeobj: int, item: ItemSchema) -> ItemModel:
@@ -43,7 +43,7 @@ class ItemService:
         :param item: item with new values
         :return: updated entity with new values
         """
-        return self._itemRepository.update(codeobj,ItemModel.CreateItemModelFromSchema(item))
+        return self._itemRepository.update(codeobj, ItemModel.createItemModelFromSchema(item))
 
     def delete(self, codeobj: int) -> None:
         """
