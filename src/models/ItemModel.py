@@ -1,6 +1,6 @@
 from sqlalchemy.orm import relationship
 
-from src.models.BaseModel import Dictable,Base
+from src.models.BaseModel import Dictable, Base
 from sqlalchemy import Column, Integer, String, Date, Numeric
 
 from src.schemas.ItemSchema import ItemSchema

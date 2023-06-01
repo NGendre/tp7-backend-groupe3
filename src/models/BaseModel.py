@@ -10,7 +10,7 @@ def init():
     Base.metadata.create_all(bind=engine)
 
 
-class Diactable:
+class Dictable:
     def to_dict(self) -> dict[str, Any]:
         return dict([(k, getattr(self, k)) for k in self.__dict__.keys() if not k.startswith("_")])
 

@@ -1,10 +1,10 @@
-from src.models.BaseModel import Base, Diactable
+from src.models.BaseModel import Base, Dictable
 from sqlalchemy import Column, Integer, String, Date
 from datetime import datetime
 from src.schemas.User.CreateUseSchema import CreateUserSchema
 
 
-class UserModel(Base, Diactable):
+class UserModel(Base, Dictable):
     __tablename__ = "t_utilisateur"
     code_utilisateur = Column(Integer, primary_key=True, autoincrement=True)
     nom_utilisateur = Column(String(50), default=None)
