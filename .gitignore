@@ -10,3 +10,17 @@
 /__pycache__
 
 .env
+src/__pycache__/
+__tests__/__pycache__/
+
+src/config/__pycache__/
+
+src/models/__pycache__/
+
+src/repositories/__pycache__/
+
+src/routers/admin/items/__pycache__/
+
+src/schemas/__pycache__/
+
+src/services/__pycache__/
