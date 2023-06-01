@@ -7,20 +7,7 @@
 /modules.xml
 /inspectionProfiles/profiles_settings.xml
 /inspectionProfiles/Project_Default.xml
-/__pycache__
 
+ *.pyc
 .env
-src/__pycache__/
-__tests__/__pycache__/
-
-src/config/__pycache__/
-
-src/models/__pycache__/
-
-src/repositories/__pycache__/
-
-src/routers/admin/items/__pycache__/
-
-src/schemas/__pycache__/
-
-src/services/__pycache__/
+__pycache__/
