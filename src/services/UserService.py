@@ -30,14 +30,9 @@ class UserService:
         :return: The user created
         :rtype: UserModel
         """
-        new_user = UserModel()
-        new_user.nom_utilisateur = user.nom_utilisateur
-        new_user.prenom_utilisateur = user.prenom_utilisateur
-        new_user.username = user.username
-        new_user.couleur_fond_utilisateur = 0
-        new_user.date_insc_utilisateur = datetime.now()
-        new_user = self.__user_repository.create(new_user)
-        return UserSchema.from_orm(new_user)
+        new_user = UserModel.create_default(user)
+        new_user_saved = self.__user_repository.create(new_user)
+        return UserSchema.from_orm(new_user_saved)
 
     def get_all_users(self) -> list[UserModel]:
         """
