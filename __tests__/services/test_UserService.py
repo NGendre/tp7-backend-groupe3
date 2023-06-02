@@ -1,6 +1,7 @@
+from datetime import datetime
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
-from datetime import datetime
+
 from src.models.UserModel import UserModel
 from src.schemas.User.CreateUseSchema import CreateUserSchema
 from src.schemas.User.UpdateUserSchema import UpdateUserSchema
@@ -24,10 +25,9 @@ class TestUserService(TestCase):
                                            nom_utilisateur=user_data.nom_utilisateur,
                                            prenom_utilisateur=user_data.prenom_utilisateur,
                                            couleur_fond_utilisateur=0,
-                                           date_insc_utilisateur=datetime.now()))\
-             and \
-             patch('src.models.UserModel.UserModel.create_default', return_value=fake_model):
-            self.user_service.create_user(user_data)
+                                           date_insc_utilisateur=datetime.now())):
+            with patch('src.models.UserModel.UserModel.create_default', return_value=fake_model):
+                self.user_service.create_user(user_data)
         self.user_repository.create.assert_called_once_with(fake_model)
 
     def test_get_all_users(self):
