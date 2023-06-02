@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date, Boolean, ForeignKey, Index, Numeric, Float,MetaData
+'''from sqlalchemy import Column, Integer, String, Date, Boolean, ForeignKey, Index, Numeric, Float,MetaData
 
 from sqlalchemy.orm import relationship
 from sqlalchemy import select
@@ -160,3 +160,4 @@ stmt = select(Utilisateur).where(Utilisateur.nom_utilisateur.in_(["spongebob", "
 
 for user in session.scalars(stmt):
 	print(user)
+'''

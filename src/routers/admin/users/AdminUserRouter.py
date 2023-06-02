@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, status, Body, HTTPException
+from fastapi import APIRouter, Body, Depends, HTTPException, status
 
+from src.schemas.User.CreateUseSchema import CreateUserSchema
 from src.schemas.User.UpdateUserSchema import UpdateUserSchema
 from src.schemas.User.UserSchema import UserSchema
-from src.schemas.User.CreateUseSchema import CreateUserSchema
 from src.services.UserService import UserService
 
 UsersRouter = APIRouter(

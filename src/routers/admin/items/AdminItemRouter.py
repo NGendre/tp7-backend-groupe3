@@ -6,7 +6,7 @@ from src.services.ItemService import ItemService
 
 
 ItemRouter = APIRouter(
-    prefix='/items',tags=['items']
+    prefix='/items'
 )
 
 

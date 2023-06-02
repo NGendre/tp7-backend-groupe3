@@ -11,3 +11,4 @@
  *.pyc
 .env
 __pycache__/
+/html

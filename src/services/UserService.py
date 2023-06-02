@@ -1,11 +1,10 @@
-from datetime import datetime
+from fastapi import Depends
 
+from src.models.UserModel import UserModel
+from src.repositories.UserRepository import UserRepository
+from src.schemas.User.CreateUseSchema import CreateUserSchema
 from src.schemas.User.UpdateUserSchema import UpdateUserSchema
 from src.schemas.User.UserSchema import UserSchema
-from src.schemas.User.UserSchema import CreateUserSchema
-from src.repositories.UserRepository import UserRepository
-from fastapi import Depends
-from src.models.UserModel import UserModel
 
 
 class UserService:
@@ -16,6 +15,7 @@ class UserService:
     """
     UserService has a dependency to work. It has to be set in __init__ method
     """
+
     def __init__(self, user_repository: UserRepository = Depends()):
         """
         :param user_repository: Class responsable to manage database operations
@@ -44,7 +44,7 @@ class UserService:
 
     def get_user_by_id(self, id: int) -> UserModel | None:
         """
-        Instance method to get one User by his ID
+        Instance method to get one User by his ID.
         :param id: ID of the User
         :type id: int
         :return: User if he is found or None if not found
@@ -54,7 +54,7 @@ class UserService:
 
     def update_one_by_id(self, id: int, user: UpdateUserSchema) -> UserModel | None:
         """
-        Instance method to update one User by his ID
+        Instance method to update one User by his ID.
         :param id: ID of the User
         :type id: int
         :param user: User with his data to update
@@ -74,7 +74,7 @@ class UserService:
         Instance method to delete one User by his ID
 
         IMPORTANT:
-        Even if User doesn't exist, it does not raise an Exception nor delete another User. It just do nothing.
+        Even if User doesn't exist, it does not raise an Exception nor delete another User. It just does nothing.
         :param id: ID of the User
         :type id: int
         """
