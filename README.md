@@ -4,7 +4,7 @@ Développement d'une application web Backend
 
 ## Requirements
 
-Pour faire fonctionner l'application, veuillez verifier que vous possedez une version de python 3.11
+Pour faire fonctionner l'application, veuillez verifier que vous possedez une version de python 3.11.3.
 Installez les dépendances avec cette commande:
 
 ````bash
@@ -33,6 +33,15 @@ uvicorn main:app
 
 ## Tests
 
+Les tests unitaires se trouvent dans le dossier à la racine `/__tests__`.
+Lancez les tests avec cette commande:
+
+```bash
+python -m unittest
+```
+
+[Plus d'info](./livrables/Scenarii_de_tests.md)
+
 ## Documentation
 
 ### Code source
@@ -43,6 +52,8 @@ documentation `/html` à la racine.
 ````bash
 pdoc --html src
 ````
+
+[Plus d'info](./livrables/doc_technique.md)
 
 ### API
 
